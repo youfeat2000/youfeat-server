@@ -25,6 +25,14 @@ const userSchema = new mongoose.Schema({
   state: String,
   bio: String,
   video: Object,
+  role: {
+    require: true,
+    type: Number,
+  },
+  contestant: {
+    type: Boolean,
+    require,
+  },
 });
 
 const User = mongoose.model("User", userSchema);

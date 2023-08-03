@@ -2,7 +2,8 @@ const bcrypt = require("bcrypt");
 const User = require("../schema/userSchema");
 
 const handleRegister = async (req, res) => {
-  const { fullName, email, phoneNumber, password, state } = req.body;
+  const { fullName, email, phoneNumber, password, state, role, contestant } =
+    req.body;
 
   const duplicate = User.findOne({ email });
   if (duplicate.length) return res.sendStatus(403);
@@ -15,6 +16,8 @@ const handleRegister = async (req, res) => {
     email,
     phoneNumber,
     state,
+    role,
+    contestant,
   });
   newUser.save().then((data) => res.send(data));
 };
