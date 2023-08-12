@@ -6,7 +6,7 @@ const handleLogout = (req, res) => {
 
   User.findOneAndUpdate({ refreshtoken }, { refreshtoken: "" })
     .then((data) => {
-      res.clearCookie("jwt", {
+      return res.clearCookie("jwt", {
         httpOnly: true,
         sameSite: "None",
         path: "/",
