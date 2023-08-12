@@ -6,13 +6,12 @@ const handleLogout = (req, res) => {
 
   User.findOneAndUpdate({ refreshtoken }, { refreshtoken: "" })
     .then((data) => {
-       res.clearCookie("jwt", {
+      return res.clearCookie("jwt", {
           httpOnly: true,
           sameSite: "None",
           path: "/",
           secure: true,
-        });
-        res.sendStatus(200);
+        }).sendStatus(200);
     })
     .catch((err) => console.log(err));
 };
