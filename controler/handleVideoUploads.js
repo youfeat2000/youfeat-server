@@ -5,7 +5,6 @@ const User = require("../schema/userSchema");
 const uploadVideo = (req, res) => {
   User.findById(req.body.userId)
     .then((data) => {
-      console.log(data);
       if (data.video) {
         fs.unlinkSync(`videos/${data.video.filename}`);
       }
