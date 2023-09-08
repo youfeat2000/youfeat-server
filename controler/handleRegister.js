@@ -18,6 +18,7 @@ const handleRegister = async (req, res) => {
     state,
     role,
     contestant,
+    verified: false,
   });
   newUser.save().then((data) => res.send(data));
 };

@@ -16,6 +16,8 @@ const handleVote = require("../controler/handleVote");
 const handleGetVote = require("../controler/handleGetVote");
 const handleNotification = require("../controler/handleNotification");
 const handleGetNotification = require("../controler/handleGetNotification");
+const handleComment = require("../controler/handleComment");
+const handleGetComment = require("../controler/handleGetComment");
 const route = express.Router();
 
 route.post("/signup", handleRegister);
@@ -29,6 +31,10 @@ route.post("/user", handleGetUser);
 route.post("/users", handleGetAllUsers);
 
 route.post("/vote", handleVote);
+
+route.post("/comment", handleComment);
+
+route.post("/allcomment", handleGetComment);
 
 route.post("/notify", handleNotification);
 
