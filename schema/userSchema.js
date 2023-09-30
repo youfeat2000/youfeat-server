@@ -29,11 +29,15 @@ const userSchema = new mongoose.Schema({
     require: true,
     type: Number,
   },
+  code: Number,
   contestant: {
     type: Boolean,
     require,
   },
-  verified: Boolean,
+  verified: {
+   type: Boolean,
+   default: false
+  }
 });
 
 const User = mongoose.model("User", userSchema);

@@ -18,11 +18,20 @@ const handleNotification = require("../controler/handleNotification");
 const handleGetNotification = require("../controler/handleGetNotification");
 const handleComment = require("../controler/handleComment");
 const handleGetComment = require("../controler/handleGetComment");
+const handleVerifyEmail = require("../controler/VerifyAccount");
+const handleCheckEmail = require("../controler/handleCheckEmail");
+const handleChangePassword = require("../controler/handleChangePassword");
 const route = express.Router();
 
 route.post("/signup", handleRegister);
 
+route.post("/setpassword", handleChangePassword);
+
 route.post("/logout", handleLogout);
+
+route.post("/checkemail", handleCheckEmail);
+
+route.post("/verifyemail", handleVerifyEmail);
 
 route.post("/refresh", handleRefresh);
 
