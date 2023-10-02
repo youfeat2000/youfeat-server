@@ -4,7 +4,6 @@ const handleVote = async(req, res) => {
   const { userName, videoTitle, userId, videoName, voterId } = req.body;
 
   const foundVote = await Vote.findOne({voterId})
-  console.log(foundVote)
   if(foundVote) {
     return res.sendStatus(207)
   }

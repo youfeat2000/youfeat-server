@@ -12,7 +12,7 @@ const handleProfileImage = (req, res) => {
       }
     })
     .catch((err) => console.log(err));
-  User.findByIdAndUpdate(userid, { profileImage: filename })
+  User.findByIdAndUpdate(userid, { profileImage: filename, profileImageData: fs.readFileSync(`Images/${filename}`) })
     .then((data) => res.send(data))
     .catch((err) => res.sendStatus(400));
 };

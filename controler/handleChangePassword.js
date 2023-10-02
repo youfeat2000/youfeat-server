@@ -3,10 +3,8 @@ const bcrypt = require('bcrypt')
 
 const handleChangePassword = async(req, res)=>{
     const { code, password} = req.body
-    console.log(code)
     const user =await User.findOne({ code })
     if(!user) return res.sendStatus(401)
-    console.log(user)
 
     try{
         const salt =await bcrypt.genSalt(10)

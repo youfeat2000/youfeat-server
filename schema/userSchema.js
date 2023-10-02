@@ -22,9 +22,12 @@ const userSchema = new mongoose.Schema({
     type: String,
   },
   profileImage: String,
+  profileImageData: Buffer,
   state: String,
   bio: String,
   video: Object,
+  highschool:String,
+  dob: Date,
   role: {
     require: true,
     type: Number,

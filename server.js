@@ -32,7 +32,3 @@ app.use(
 );
 
 app.use(route);
-const del = ()=>{
-  User.findOneAndDelete({email: 'ngbedejames415@gmail.com'})
-  .then(data=> console.log(data))
-}
