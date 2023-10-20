@@ -5,8 +5,8 @@ const handleRegister = async (req, res) => {
   const { fullName, email, phoneNumber, password, state, role, contestant, code } =
     req.body;
 
-  const duplicate = User.findOne({ email });
-  if (duplicate.length) return res.sendStatus(403);
+  const duplicate =await User.findOne({ email });
+  if (duplicate) return res.sendStatus(403);
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
 
