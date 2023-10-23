@@ -23,7 +23,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: ftp.server.youfeat.ng
-        username: youfeat@youfeat.ng
-        password: 9IAe8JbRFJf&
+        server: ftp.youfeat.ng
+        username: youfeatserver@server.youfeat.ng
+        password: 67zfDQB[R2cl
         protocol: ftps
