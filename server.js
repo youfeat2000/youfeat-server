@@ -27,7 +27,7 @@ app.use(cookieparser());
 app.use(
   cors({
     credentials: true,
-    origin: [uri, 'youfeat.ng']
+    origin: 'youfeat.ng'
   })
 );
 
