@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const User = require("../schema/userSchema");
 
 const handleRegister = async (req, res) => {
-  const { fullName, email, phoneNumber, password, state, role, contestant, code } =
+  const { fullName, email, catigory, password, state, role, contestant, code } =
     req.body;
 
   const duplicate =await User.findOne({ email });
@@ -14,7 +14,7 @@ const handleRegister = async (req, res) => {
     fullName,
     password: hashedPassword,
     email,
-    phoneNumber,
+    catigory,
     state,
     role,
     contestant,

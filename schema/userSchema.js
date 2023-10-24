@@ -25,6 +25,7 @@ const userSchema = new mongoose.Schema({
   profileImageData: Buffer,
   state: String,
   bio: String,
+  catigory:String,
   video: Object,
   highschool:String,
   dob: Date,
