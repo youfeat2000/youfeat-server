@@ -23,7 +23,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: c008ftp.cloudclusters.net
-        username: admin
-        password: JQbjnUMbw75M
+        server: ftp.youfeat.ng
+        username: youfeatserver@server.youfeat.ng
+        password: ZY9Fa[8v4!2_
         protocol: ftps
