@@ -8,7 +8,7 @@ const port = 3500;
 const app = express();
 require("dotenv").config();
 //const db = "mongodb://127.0.0.1:27017/youfeat";
-const uri = 'https://youfeat.ng';
+const uri = 'https://www.youfeat.ng';
 //const uri = "http://localhost:3000";
 const db = process.env.DB_URL;
 mongoose
