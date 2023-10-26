@@ -8,8 +8,6 @@ const port = 3500;
 const app = express();
 require("dotenv").config();
 //const db = "mongodb://127.0.0.1:27017/youfeat";
-const uri = 'https://youfeat.ng';
-//const uri = "http://localhost:3000";
 const db = process.env.DB_URL;
 mongoose
   .connect(db, {
@@ -24,11 +22,27 @@ mongoose
   .catch((err) => console.log(err));
 app.use(express.json());
 app.use(cookieparser());
-app.use(
-  cors({
-    credentials: true,
-    origin: '*',
-  })
-);
+
+// Define an array of allowed origins
+const allowedOrigins = [
+  'https://youfeat.ng',
+  'https://www.youfeat.ng',
+  'http://localhost:3000'
+];
+
+// Configure CORS with credentials enabled and a function to check the origin
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+    credentials: true, 
+};
+
+
+app.use(cors(corsOptions));
 
 app.use(route);
