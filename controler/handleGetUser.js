@@ -5,7 +5,10 @@ const handleGetUser = (req, res) => {
   if (!refreshtoken) return res.sendStatus(403);
 
   User.findOne({ refreshtoken })
-    .then((data) => res.json(data))
+    .then((data) => {
+      data.profileImageData = null
+      res.json(data)
+    })
     .catch((err) => {
       console.log(err);
       res.sendStatus(400);
