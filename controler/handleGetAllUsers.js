@@ -6,7 +6,6 @@ const handleGetAllUsers = (req, res) => {
       data.forEach(value => {
         value.profileImageData = null
       });
-      console.log(data)
       res.send(data)
     })
     .catch((err) => res.sendStatus(400));

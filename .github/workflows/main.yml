@@ -24,7 +24,7 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ftp.youfeat.ng
-        username: sammy@server.youfeat.ng
-        password: 7}N^m(AAkbu4
+        username: youfeat3@server.youfeat.ng
+        password: sF%oPQ0@q{4T
         port: 21
         protocol: ftps

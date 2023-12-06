@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const cookieparser = require("cookie-parser");
-const User = require('./schema/userSchema')
 const route = require("./router/allRouts");
 const port = 3500;
 const app = express();
