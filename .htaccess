@@ -1,3 +1,10 @@
-<IfModule mod_headers>
-    Header set Access-Control-Allow-Origin '<domain>'
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^$ http://127.0.0.1:3500/ [P,L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ http://127.0.0.1:3500/$1 [P,L]
+    Header always set Access-Control-Allow-Origin "https://youfeat.ng"
+Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+Header always set Access-Control-Allow-Headers "Content-Type"
 </IfModule>
