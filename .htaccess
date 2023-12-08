@@ -4,12 +4,3 @@
     RewriteRule ^(.*)$ /your-node-app/$1 [L]
 </IfModule>
 
-<IfModule mod_proxy.c>
-    ProxyRequests Off
-    <Proxy *>
-        Order deny,allow
-        Allow from all
-    </Proxy>
-    ProxyPass /your-node-app/ http://127.0.0.1:3500/  
-    ProxyPassReverse /your-node-app/ http://127.0.0.1:3500/ 
-</IfModule>
