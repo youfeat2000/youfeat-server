@@ -43,9 +43,10 @@ const corsOptions = {
     credentials: true, 
 };
 
+app.use(cors(corsOptions));
+
 app.get("/", (req, res)=>{
   res.send({youfeat: "welcome"})
 })
-app.use(cors(corsOptions));
 
 app.use(route);
