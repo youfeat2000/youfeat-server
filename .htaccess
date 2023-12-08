@@ -1,16 +1,6 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_URI} !^/home2/youfeat1/public_html/server.youfeat.ng/
-    RewriteRule ^(.*)$ /home2/youfeat1/public_html/server.youfeat.ng/$1 [L]
-</IfModule>
-
 <IfModule mod_proxy.c>
     ProxyRequests Off
-    <Proxy *>
-        Order deny,allow
-        Allow from all
-    </Proxy>
-    ProxyPass /your-node-app/ http://127.0.0.1:3500/  
-    ProxyPassReverse /your-node-app/ http://127.0.0.1:3500/  
+    ProxyPreserveHost On
+    ProxyPass / http://127.0.0.1:3500/
+    ProxyPassReverse / http://127.0.0.1:3500/
 </IfModule>
-
