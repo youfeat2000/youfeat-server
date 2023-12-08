@@ -28,7 +28,6 @@ const allowedOrigins = [
   'https://youfeat.ng',
   'https://www.youfeat.ng',
   'http://localhost:3000',
-  "https://youfeat.ng/login"
 ];
 
 // Configure CORS with credentials enabled and a function to check the origin
