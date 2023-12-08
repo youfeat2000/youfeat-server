@@ -1,5 +1,5 @@
 const User = require('../schema/userSchema')
-const bcrypt = require('bcrypt')
+const crypto = require("crypto")
 
 const handleChangePassword = async(req, res)=>{
     const { code, password} = req.body
@@ -7,10 +7,14 @@ const handleChangePassword = async(req, res)=>{
     if(!user) return res.sendStatus(401)
 
     try{
-        const salt =await bcrypt.genSalt(10)
-        const hashedPassword = await bcrypt.hash(password, salt)
+        const salt = crypto.randomBytes(16).toString('hex');
+        const iterations = 100000; // You can adjust this based on your security requirements
+        const keylen = 64; // Key length in bytes
+        const digest = 'sha512'; // Hashing algorithm
 
-        User.findOneAndUpdate({code}, {password: hashedPassword, code: 000000})
+        const hashedPassword = crypto.pbkdf2Sync(password, salt, iterations, keylen, digest).toString('hex');
+
+        User.findOneAndUpdate({code}, {password: hashedPassword, salt, code: 100000,})
         .then(data=> res.sendStatus(200))
     }catch (err){
         res.sendStatus(400)

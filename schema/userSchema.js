@@ -17,6 +17,10 @@ const userSchema = new mongoose.Schema({
     require: true,
     type: String,
   },
+  salt: {
+    require: true,
+    type: String,
+  },
   refreshtoken: {
     require: true,
     type: String,
