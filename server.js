@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(cookieparser());
 
 // Define an array of allowed origins
-const allowedOrigins = [
+/*const allowedOrigins = [
   'https://youfeat.ng',
 ];
 
@@ -41,6 +41,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+*/
 
 app.get("/", (req, res)=>{
   res.send({youfeat: "welcome"})
