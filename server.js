@@ -26,6 +26,7 @@ app.use(cookieparser());
 // Define an array of allowed origins
 const allowedOrigins = [
   'https://youfeat.ng',
+  //'http://localhost:3000'
 ];
 
 // Configure CORS with credentials enabled and a function to check the origin
