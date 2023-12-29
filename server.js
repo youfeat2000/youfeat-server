@@ -26,24 +26,24 @@ app.use(cookieparser());
 // Define an array of allowed origins
 const allowedOrigins = [
   'https://youfeat.ng',
-  "https://youfeat.ng/*"
+  "https://youfeat.ng/*",
   'http://localhost:3000'
 ];
 
-// Configure CORS with credentials enabled and a function to check the origin
 const corsOptions = {
-  origin: (origin, callback) => {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+  origin: function (origin, callback) {
+    // Check if the request origin is in the allowedOrigins array
+    if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
-    credentials: true, 
+  credentials: true,
+  optionsSuccessStatus: 204,
 };
 
 app.use(cors(corsOptions));
-
 
 app.get("/", (req, res)=>{
   res.send({youfeat: "welcome"})
