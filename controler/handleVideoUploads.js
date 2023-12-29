@@ -13,13 +13,13 @@ const uploadVideo = (req, res) => {
 const tokenPath = '../token.json'; 
 
 const SCOPES = ['https://www.googleapis.com/auth/youtube.upload'];
-const oauth2Client = new OAuth2Client(client_id, client_secret, token_uri);
+const oauth2Client = new OAuth2Client(client_id, client_secret, auth_uri);
 
 // Function to authorize the user and get the OAuth 2.0 credentials
 async function authorize() {
   const authUrl = oauth2Client.generateAuthUrl({
     access_type: 'offline',
-    scope: SCOPES,
+    scope: SCOPES[0],
   });
   console.log('Authorize this app by visiting this URL:', authUrl);
 
