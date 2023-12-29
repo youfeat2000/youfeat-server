@@ -1,6 +1,3 @@
-<IfModule mod_headers.c>
-</IfModule>
-
 <IfModule mod_rewrite.c>
     
 </IfModule>
